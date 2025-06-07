@@ -1,0 +1,92 @@
+# Xcode Index Browser MCP Extension Hints
+
+## Description
+
+This project enhances Goose’s performance on iOS code by integrating Xcode’s project index. Xcode generates an index to assist with navigation, which can be accessed programmatically via IndexStoreDB. Some features that fail within Xcode, such as “Show Callers,” work correctly through IndexStoreDB.
+
+By wrapping IndexStoreDB in an MCP server, this tool enables Goose to browse and analyze the Cash iOS project with greater precision than regex-based searches, improving function resolution, call site analysis, and refactoring capabilities.
+
+## Project Structure
+- `swift-service/`: Contains the Swift MCP server that interfaces with IndexStoreDB
+- `src/xcode_index_mcp/`: Contains the Python Goose extension code
+- `test_mcp.py`: Test script for the MCP server
+
+## Common Issues
+
+### Swift Service
+
+1. "Failed to bind socket" error:
+   - Check if port 7949 is already in use: `lsof -i :7949`
+   - Kill any existing processes using the port: `kill -9 <PID>`
+   - Try changing the port number in both server and client code
+   - Run with sudo if it's a permissions issue (though not recommended for development)
+
+2. IndexStoreDB loading:
+   - Takes about 30 seconds to load an index
+   - Keep the Swift process running to avoid reloading
+   - Default index location: `~/Library/Developer/Xcode/DerivedData/<project>/Index/DataStore`
+
+### Development Tips
+
+1. Testing the MCP server:
+   ```bash
+   # Start the server
+   cd swift-service
+   .build/debug/IndexStoreMCPService
+
+   # In another terminal, run the test client
+   python3 test_mcp.py
+   ```
+
+2. Building the Swift service:
+   ```bash
+   cd swift-service
+   swift build
+   ```
+
+3. Installing the Goose extension:
+   ```bash
+   pip install -e .
+   ```
+
+4. Example MCP request format:
+   ```json
+   {
+     "id": "request-id",
+     "method": "search_symbols",
+     "params": {
+       "query": "search-term",
+       "limit": "10"
+     }
+   }
+   ```
+
+## Useful Commands
+
+1. Check IndexStoreDB version:
+   ```bash
+   swift package show-dependencies
+   ```
+
+2. View Xcode project index:
+   ```bash
+   xcrun --find sourcekit-lsp
+   ```
+
+3. Debug MCP communication:
+   ```bash
+   nc -l 7949  # Listen on port 7949
+   nc localhost 7949  # Connect to port 7949
+   ```
+
+## Resources
+
+1. IndexStoreDB documentation:
+   - https://github.com/apple/indexstore-db
+   - https://github.com/apple/swift/blob/main/docs/IndexStoreDB.md
+
+2. Goose Extension documentation:
+   - https://block.github.io/goose/docs/tutorials/custom-extensions/
+
+3. MCP Protocol specification:
+   - [Add link to MCP documentation when available]

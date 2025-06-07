@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "IndexStoreDB",
+        "repositoryURL": "https://github.com/apple/indexstore-db.git",
+        "state": {
+          "branch": "main",
+          "revision": "1e3bf2d2b82a6428d8d63ee3e239b189c32fda50",
+          "version": null
+        }
+      },
+      {
+        "package": "CLMDB",
+        "repositoryURL": "https://github.com/swiftlang/swift-lmdb.git",
+        "state": {
+          "branch": "main",
+          "revision": "1ad9a2d80b6fcde498c2242f509bd1be7d667ff8",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

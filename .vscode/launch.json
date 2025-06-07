@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:xcode-index-mcp}/swift-service",
+            "name": "Debug IndexStoreMCPService (swift-service)",
+            "program": "${workspaceFolder:xcode-index-mcp}/swift-service/.build/debug/IndexStoreMCPService",
+            "preLaunchTask": "swift: Build Debug IndexStoreMCPService (swift-service)"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:xcode-index-mcp}/swift-service",
+            "name": "Release IndexStoreMCPService (swift-service)",
+            "program": "${workspaceFolder:xcode-index-mcp}/swift-service/.build/release/IndexStoreMCPService",
+            "preLaunchTask": "swift: Build Release IndexStoreMCPService (swift-service)"
+        }
+    ]
+}
