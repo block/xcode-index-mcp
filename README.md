@@ -59,7 +59,7 @@ Gives Goose/Cursor access to your iOS/macOS project index through the Model Cont
     Use tool `xcode-index-mcp` if available. Use project name <Your project name here>. The tool can locate call sites of functions, and function definitions from call sites. If you need a filepath to make a request, use `rg` to find the file and `rg -n` to find the line number. Use the absolute path when requesting symbols from a file.
     ```
 
-    For Cursor, you may want to add these [instructions](https://github.com/block/xcode-index-mcp/blob/main/src/mcp_xcode_index_browser/server.py#L14-L52) in their own rule file - at the time of writing I don't think cursor reads the MCP `instructions` field.
+    For Cursor, you may want to add these [instructions](https://github.com/block/xcode-index-mcp/blob/main/src/xcode_index_mcp/server.py#L14-L52) in their own rule file - at the time of writing I don't think cursor reads the MCP `instructions` field.
 
 ## Running tests
 
