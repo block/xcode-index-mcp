@@ -39,14 +39,14 @@ Example prompt: refactor the initializer of myClass.
 1. Use search_pattern to find the USR for "myClass".
 2. Use get_occurrences with the USR to find the definition of "myClass".
 3. Use rg -n to search for the initializer in the class's filepath
-4. Use symbol_occurences with the filepath and line number to get the USR for the initializer.
+4. Use symbol_occurrences with the filepath and line number to get the USR for the initializer.
 5. Use get_occurrences with the USR to find all references to the initializer.
 6. Refactor the intializer in the class and all references.
               
 Example prompt: Refactor myProperty in myClass.
 1. Use search_pattern to find filepath for "myClass".
 2. Use `rg -n` to search for the property in the class's filepath
-3. Use symbol_occurences with the filepath and line number to get the USR for the property.
+3. Use symbol_occurrences with the filepath and line number to get the USR for the property.
 4. Use get_occurrences with the USR to find all references to the property.
 5. Refactor the property in the class and all references.
 """)
