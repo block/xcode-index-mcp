@@ -31,7 +31,7 @@ Gives Goose/Cursor access to your iOS/macOS project index through the Model Cont
     ```bash
     uv run /Users/<USERNAME>/Development/xcode-index-mcp/.venv/bin/xcode-index-mcp
     ```
-    Note: Replace `<USERNAME>` with your actual system username.
+    Note: Replace `<USERNAME>` with your actual system username, or with the correct path xcode-index-mcp on your machine.
 
     The rest should look something like this:
 
@@ -51,9 +51,17 @@ Gives Goose/Cursor access to your iOS/macOS project index through the Model Cont
             }
         }
     ```
-    Note: Replace `<USERNAME>` with your actual system username.
+    Note: Replace `<USERNAME>` with your actual system username, or with the correct path xcode-index-mcp on your machine.
 
-4. Update `.gooseHints` or `cursorRules` in your project to tell your agent how to use the plugin. Replace the project name with the name of your project as it appears in the derived data folder. 
+    ### Claude Code:
+
+    Run this command in the terminal to add the mcp to Claude Code
+    ```bash
+    claude mcp add xcode-index-mcp -- uv run /Users/<USERNAME>/Development/xcode-index-mcp/.venv/bin/xcode-index-mcp
+    ```
+    Note: Replace `<USERNAME>` with your actual system username, or with the correct path xcode-index-mcp on your machine.
+
+4. Update `.gooseHints`, `cursorRules`, or `CLAUDE.MD`  in your project to tell your agent how to use the plugin. Replace the project name with the name of your project as it appears in the derived data folder. 
 
     ```
     Use tool `xcode-index-mcp` if available. Use project name <Your project name here>. The tool can locate call sites of functions, and function definitions from call sites. If you need a filepath to make a request, use `rg` to find the file and `rg -n` to find the line number. Use the absolute path when requesting symbols from a file.
