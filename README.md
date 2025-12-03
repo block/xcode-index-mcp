@@ -29,7 +29,7 @@ Gives Goose/Cursor access to your iOS/macOS project index through the Model Cont
     Go to settings and add a custom extension. In the modal that pops up, under the `command` field, add this line:
 
     ```bash
-    uv run /Users/<USERNAME>/Development/xcode-index-mcp/.venv/bin/xcode-index-mcp
+    /Users/<USERNAME>/Development/xcode-index-mcp/.venv/bin/xcode-index-mcp
     ```
     Note: Replace `<USERNAME>` with your actual system username, or with the correct path xcode-index-mcp on your machine.
 
@@ -45,8 +45,7 @@ Gives Goose/Cursor access to your iOS/macOS project index through the Model Cont
         {
             "mcpServers": {
                 "Xcode Index MCP": {
-                    "command": "uv",
-                    "args": ["run", "/Users/<USERNAME>/Development/xcode-index-mcp/.venv/bin/xcode-index-mcp"]
+                    "command": "/Users/<USERNAME>/Development/xcode-index-mcp/.venv/bin/xcode-index-mcp"
                 }
             }
         }
@@ -57,7 +56,7 @@ Gives Goose/Cursor access to your iOS/macOS project index through the Model Cont
 
     Run this command in the terminal to add the mcp to Claude Code
     ```bash
-    claude mcp add xcode-index-mcp -- uv run /Users/<USERNAME>/Development/xcode-index-mcp/.venv/bin/xcode-index-mcp
+    claude mcp add xcode-index-mcp -- /Users/<USERNAME>/Development/xcode-index-mcp/.venv/bin/xcode-index-mcp
     ```
     Note: Replace `<USERNAME>` with your actual system username, or with the correct path xcode-index-mcp on your machine.
 
