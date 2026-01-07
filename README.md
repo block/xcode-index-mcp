@@ -18,7 +18,7 @@ Gives Goose/Cursor access to your iOS/macOS project index through the Model Cont
 2. Build the Swift service (Xcode must be installed)
     ```bash
     cd swift-service
-    swift build
+    swift build -c release
     ```
     This step is required as it provides the interface to Xcode's index.
 
